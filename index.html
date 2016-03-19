@@ -1,0 +1,308 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Confiablidad Bayesiana</title>
+  <meta charset="utf-8">
+  <meta name="description" content="Confiablidad Bayesiana">
+  <meta name="author" content="Juan Esteban MejÃ­a Villegas">
+  <meta name="generator" content="slidify" />
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta http-equiv="X-UA-Compatible" content="chrome=1">
+  <link rel="stylesheet" href="libraries/frameworks/io2012/css/default.css" media="all" >
+  <link rel="stylesheet" href="libraries/frameworks/io2012/css/phone.css" 
+    media="only screen and (max-device-width: 480px)" >
+  <link rel="stylesheet" href="libraries/frameworks/io2012/css/slidify.css" >
+  <link rel="stylesheet" href="libraries/highlighters/highlight.js/css/tomorrow.css" />
+  <base target="_blank"> <!-- This amazingness opens all links in a new tab. -->  <link rel=stylesheet href="libraries/widgets/bootstrap/css/bootstrap.css"></link>
+<link rel=stylesheet href="./assets/css/ribbons.css"></link>
+
+  
+  <!-- Grab CDN jQuery, fall back to local if offline -->
+  <script src="http://ajax.aspnetcdn.com/ajax/jQuery/jquery-1.7.min.js"></script>
+  <script>window.jQuery || document.write('<script src="libraries/widgets/quiz/js/jquery.js"><\/script>')</script> 
+  <script data-main="libraries/frameworks/io2012/js/slides" 
+    src="libraries/frameworks/io2012/js/require-1.0.8.min.js">
+  </script>
+  
+  
+
+</head>
+<body style="opacity: 0">
+  <slides class="layout-widescreen">
+    
+    <!-- LOGO SLIDE -->
+        <slide class="title-slide segue nobackground">
+  <hgroup class="auto-fadein">
+    <h1>Confiablidad Bayesiana</h1>
+    <h2>Una breve introducciÃ³n</h2>
+    <p>Juan Esteban MejÃ­a Villegas<br/>EstadÃ­stico</p>
+  </hgroup>
+  <article></article>  
+</slide>
+    
+
+    <!-- SLIDES -->
+    <slide class="" id="slide-1" style="background:;">
+  <hgroup>
+    <h2>Contenido</h2>
+  </hgroup>
+  <article data-timings="">
+    <ol class = "build incremental">
+<li>Confiabilidad.</li>
+<li>Estadística Bayesiana.</li>
+<li>Confiabilidad Bayesiana.</li>
+</ol>
+
+  </article>
+  <!-- Presenter Notes -->
+</slide>
+
+<slide class="" id="slide-2" style="background:;">
+  <hgroup>
+    <h2>Confiablidad</h2>
+  </hgroup>
+  <article data-timings="">
+    <p>La confiabilidad es la propiedad de que algo funcione de forma correcta cuando se quiere usar.</p>
+
+<p>Estadísticamente se define como la probabilidad que un sistema funcione de forma adecuada para lo cual fue desarrollado; se establece un período de tiempo y un conjunto de condiciones para su funcionamiento. La confiablidad puede ser expresada como una función del tiempo.</p>
+
+<p>El análisis de confiablidad comúnmente se define bajo respuesta binaria, es decir, éxito/falla; pero es igual de importante analizar los períodos de tiempo, denominados <em>tiempo de vida</em> o <em>tiempo de falla</em>.</p>
+
+<p>Algunas razones para recolectar datos de Confiabilidad es evaludar las característias de los materiales, predecir el tiempo de falla del producto, comparar con competidores, etc.</p>
+
+<p>Las caractarística de los datos de Confiabilidad pueden ser: datos censurados (se establece un período para el estudio), datos con respuesta binaria (positiva).</p>
+
+  </article>
+  <!-- Presenter Notes -->
+</slide>
+
+<slide class="" id="slide-3" style="background:;">
+  <hgroup>
+    <h2>Confiabilidad (Cont.)</h2>
+  </hgroup>
+  <article data-timings="">
+    <p>En la estadística clásica comúnmente se utilizan distribuciones exponencial, lognormal, Weibull, gamma y gamma inversa.</p>
+
+<p>En la figura de abajo podemos observar la función de densidad de probabilidad de una variable aleatoria \(exp(2)\):</p>
+
+<p><img src="assets/fig/unnamed-chunk-1-1.png" alt="plot of chunk unnamed-chunk-1"></p>
+
+  </article>
+  <!-- Presenter Notes -->
+</slide>
+
+<slide class="" id="slide-4" style="background:;">
+  <hgroup>
+    <h2>Confiablidad (Cont.)</h2>
+  </hgroup>
+  <article data-timings="">
+    <p>En el análisis de Confiabilidad la métrica más usada es su distribución de <em>tiempo de falla</em> y los datos de los cuales se tiene información es acerca de los tiempos de falla y variables explicativas que darán información adicional al modelo.</p>
+
+<p>La función de <em>tiempo de falla</em> puede ser caracterizada por:</p>
+
+<ol class = "build incremental">
+<li><p>Función de distribución acumulada: nos da la probabilidad de que una unidad falle en el tiempo \(t\) o antes. \[F(t) = P(T \leq t)\]</p></li>
+<li><p>Función de densidad de probabilidad: se usa para representar la frecuenca relativa de los tiempos de falla en función del tiempo. \[F(t) = \int_0^t f(x)dx\]</p></li>
+</ol>
+
+  </article>
+  <!-- Presenter Notes -->
+</slide>
+
+<slide class="" id="slide-5" style="background:;">
+  <hgroup>
+    <h2>Confiablidad (Cont.)</h2>
+  </hgroup>
+  <article data-timings="">
+    <ol class = "build incremental">
+<li><p>Función de supervivencia: también conocida como función de confiabilidad, nos da la probabilidad de que una unidad funcione más allá del tiempo \(t\). \[ s(t) = P(T > t) = 1- F(t) = \int_t^{\infty} f(x)dx\]</p></li>
+<li><p>Función Hazard: conocida como tasa de riesgo, expresa la posibilidad a fallar en el siguiente intervalo de tiempo definido.</p></li>
+<li><p>Y otras como: función de Hazard acumulada, razón Hazard promedio, función cuantil y distribución cualtil.</p></li>
+</ol>
+
+  </article>
+  <!-- Presenter Notes -->
+</slide>
+
+<slide class="" id="slide-6" style="background:;">
+  <hgroup>
+    <h2>Estadística Bayesiana</h2>
+  </hgroup>
+  <article data-timings="">
+    <p>La estadística Bayesiana en los últimos años a tomado mucha fuerza con el desarrollo de la computación dado que es altamente demandante en simulaciones computacionales. Últimamente a tomado mucha relevancia ya que se pueden resolver problemas que con métodos clásicos no ha sido posible.</p>
+
+<p>La implementación de métodos Bayesianos permite representar lo que creemos acerca de los datos en una distribución apriori, luego cuando podemos analizar los datos recolectados lo que creemos va ser actualizado con la distribución aposteriori.</p>
+
+  </article>
+  <!-- Presenter Notes -->
+</slide>
+
+<slide class="" id="slide-7" style="background:;">
+  <hgroup>
+    <h2>Estadística Bayesiana - Distribución apriori</h2>
+  </hgroup>
+  <article data-timings="">
+    <p>Las distribuciones apriori se pueden clasificar en:</p>
+
+<ol class = "build incremental">
+<li><p>Apriori propia: es una distribución que asigna pesos no negativos y que suman o integran hasta uno, a todos los valores posibles del parámetro.</p></li>
+<li><p>Apriori No Informativa/Informativa: una distribución apriori no informativa refleja una ignorancia totl o un conocimiento limitado sobre el parámetro de interés. Caso contrario con la informativa, va expresar información que conocemos, la dificultad está en la identificación, selección y justificación de la distribución apriori.</p></li>
+<li><p>Apriori Conjugada: al proceder a su actualización mediante la información muestral, la distribución aposteriori es igual a la apriori.</p></li>
+</ol>
+
+  </article>
+  <!-- Presenter Notes -->
+</slide>
+
+<slide class="" id="slide-8" style="background:;">
+  <hgroup>
+    <h2>Confiabilidad Bayesiana</h2>
+  </hgroup>
+  <article data-timings="">
+    <p>En Confiabilidad Bayesiana, la modelación estadística consta de dos partes:</p>
+
+<ol>
+<li>La función de verosimilitud: tipicamente construida de la distribución muestral, definida por la función de densidad de probabilidad asumida de la data, de la cual no se conocen los parámetros.</li>
+<li>La distribución apriori: se obtiene antes de analizar la data experimental y representa el conocimiento que tenemos de los datos.</li>
+</ol>
+
+<p>En el análisis Bayesiano, la <em>función de verosimilitud</em> y la <em>distribución apriori</em> son la base para la estimación de los parámetros e inferencia.</p>
+
+<p>La estadística Bayesiana permite el uso de información que va más allá de la data experimental, esto se conoce como <em>probabilidad subjetiva</em>, por lo general se usa otra información relevante acerca de los parámetros de confiablidad desconocidos. Esta información es extremandamente útil y es un componente muy poderoso en el enfoque Bayesiano.</p>
+
+  </article>
+  <!-- Presenter Notes -->
+</slide>
+
+<slide class="" id="slide-9" style="background:;">
+  <hgroup>
+    <h2>Confiabilidad Bayesiana (Cont.)</h2>
+  </hgroup>
+  <article data-timings="">
+    <p>Después que lo datos de la prueba han sido obtenidos, la <em>distribución aposteriori</em> describe completamente la incertidumbre asociada a los parámetros; la <em>distribución aposteriori</em> se calcula vía <strong>Teorema de Bayes</strong> usando la <em>función de verosimilitud</em> y la <em>distribución apriori</em>. La sucuencia lógica de los métodos Bayesianos para el análisis de Confiablidad hace que sea fácil de describir, fácil de interpretar y usar.</p>
+
+<p>Un ejemplo de una distribución apriori y una aposteriori se puede ver a continuación.</p>
+
+<p><img src="assets/fig/unnamed-chunk-2-1.png" alt="plot of chunk unnamed-chunk-2"></p>
+
+  </article>
+  <!-- Presenter Notes -->
+</slide>
+
+<slide class="" id="slide-10" style="background:;">
+  <hgroup>
+    <h3>Bibliografía</h3>
+  </hgroup>
+  <article data-timings="">
+    <p>J.C. Correa Morales. Introdución a la Estadística Bayesiana. Escuela de Estadística, Universidad Nacional de Colombia, Sede Medellín. 2008.</p>
+
+<p>M.C. Jaramillo Elorza. Notas de clase: Estadística Industrial II. Escuela de Estadística, Universidad Nacional de Colombia, Sede Medellín 2015.</p>
+
+<p>M.S. Hamada, A.G. Wilson, C.S. Reese and H.F. Martz. Bayesian Reliability, Springer Series in Statistics. 2008.</p>
+
+  </article>
+  <!-- Presenter Notes -->
+</slide>
+
+    <slide class="backdrop"></slide>
+  </slides>
+  <div class="pagination pagination-small" id='io2012-ptoc' style="display:none;">
+    <ul>
+      <li>
+      <a href="#" target="_self" rel='tooltip' 
+        data-slide=1 title='Contenido'>
+         1
+      </a>
+    </li>
+    <li>
+      <a href="#" target="_self" rel='tooltip' 
+        data-slide=2 title='Confiablidad'>
+         2
+      </a>
+    </li>
+    <li>
+      <a href="#" target="_self" rel='tooltip' 
+        data-slide=3 title='Confiabilidad (Cont.)'>
+         3
+      </a>
+    </li>
+    <li>
+      <a href="#" target="_self" rel='tooltip' 
+        data-slide=4 title='Confiablidad (Cont.)'>
+         4
+      </a>
+    </li>
+    <li>
+      <a href="#" target="_self" rel='tooltip' 
+        data-slide=5 title='Confiablidad (Cont.)'>
+         5
+      </a>
+    </li>
+    <li>
+      <a href="#" target="_self" rel='tooltip' 
+        data-slide=6 title='Estadística Bayesiana'>
+         6
+      </a>
+    </li>
+    <li>
+      <a href="#" target="_self" rel='tooltip' 
+        data-slide=7 title='Estadística Bayesiana - Distribución apriori'>
+         7
+      </a>
+    </li>
+    <li>
+      <a href="#" target="_self" rel='tooltip' 
+        data-slide=8 title='Confiabilidad Bayesiana'>
+         8
+      </a>
+    </li>
+    <li>
+      <a href="#" target="_self" rel='tooltip' 
+        data-slide=9 title='Confiabilidad Bayesiana (Cont.)'>
+         9
+      </a>
+    </li>
+    <li>
+      <a href="#" target="_self" rel='tooltip' 
+        data-slide=10 title='Bibliografía'>
+         10
+      </a>
+    </li>
+  </ul>
+  </div>  <!--[if IE]>
+    <script 
+      src="http://ajax.googleapis.com/ajax/libs/chrome-frame/1/CFInstall.min.js">  
+    </script>
+    <script>CFInstall.check({mode: 'overlay'});</script>
+  <![endif]-->
+</body>
+  <!-- Load Javascripts for Widgets -->
+  <script src="libraries/widgets/bootstrap/js/bootstrap.min.js"></script>
+<script src="libraries/widgets/bootstrap/js/bootbox.min.js"></script>
+
+  <script>  
+  $(function (){ 
+    $("#example").popover(); 
+    $("[rel='tooltip']").tooltip(); 
+  });  
+  </script>  
+  <!-- MathJax: Fall back to local if CDN offline but local image fonts are not supported (saves >100MB) -->
+  <script type="text/x-mathjax-config">
+    MathJax.Hub.Config({
+      tex2jax: {
+        inlineMath: [['$','$'], ['\\(','\\)']],
+        processEscapes: true
+      }
+    });
+  </script>
+  <script type="text/javascript" src="http://cdn.mathjax.org/mathjax/2.0-latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+  <!-- <script src="https://c328740.ssl.cf1.rackcdn.com/mathjax/2.0-latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
+  </script> -->
+  <script>window.MathJax || document.write('<script type="text/x-mathjax-config">MathJax.Hub.Config({"HTML-CSS":{imageFont:null}});<\/script><script src="libraries/widgets/mathjax/MathJax.js?config=TeX-AMS-MML_HTMLorMML"><\/script>')
+</script>
+<!-- LOAD HIGHLIGHTER JS FILES -->
+  <script src="libraries/highlighters/highlight.js/highlight.pack.js"></script>
+  <script>hljs.initHighlightingOnLoad();</script>
+  <!-- DONE LOADING HIGHLIGHTER JS FILES -->
+   
+  </html>
